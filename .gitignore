@@ -1,8 +1,8 @@
 *.py[cod]
-
+.idea
 # C extensions
 *.so
-
+flask-flasky/
 # Packages
 *.egg
 *.egg-info
