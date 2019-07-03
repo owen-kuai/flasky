@@ -18,7 +18,7 @@ spec:
       - name: {{ instance_name }}-flasky-ci
         image: {{ flasky-ci.image }}
         ports:
-        - containerPort: 80 # 容器端口
+        - containerPort: 5000 # 容器端口
         resources:
           limits:
             cpu: "1" # cpu 限制
