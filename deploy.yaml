@@ -4,8 +4,6 @@ metadata:
   name: {{ instance_name }}-flasky-ci
   labels:
     app: {{ instance_name }}-flasky-ci
-  annotations:
-    io.daocloud.dcs/deploy: force
 spec:
   hostAliases:
   - ip: "10.18.1.56"
