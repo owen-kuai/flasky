@@ -1,13 +1,14 @@
 import os
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'owen-is-best' )
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'owen-is-best')
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.partner.outlook.cn')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '587'))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in \
-        ['true', 'on', '1']
+                   ['true', 'on', '1']
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME', "dcs@daocloud.io")
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', "Danger0us123")
     FLASKY_MAIL_SUBJECT_PREFIX = '[Mr.MagicMonkey]'
@@ -29,19 +30,19 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+                              'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 
 
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-        'sqlite://'
+                              'sqlite://'
     WTF_CSRF_ENABLED = False
 
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+                              'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
     @classmethod
     def init_app(cls, app):
