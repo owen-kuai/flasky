@@ -41,4 +41,3 @@ spec:
   - port: 5000 # 服务端口
   selector:
     app: {{ instance_name }}-flasky-ci
-
