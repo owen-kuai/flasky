@@ -25,10 +25,10 @@ spec:
         - containerPort: 80 # 容器端口
         resources:
           limits:
-            cpu: "0.5" # cpu 限制
+            cpu: "{{request}}" # cpu 限制
             memory: "1000Mi" # 内存限制
           requests:
-            cpu: "1" # cpu 预留（与限制值一致）
+            cpu: "{{request}}" # cpu 预留（与限制值一致）
             memory: "1000Mi" # 内存预留（与限制值一致）
 ---
 apiVersion: v1
